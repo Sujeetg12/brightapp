@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta charset="UTF-8">
+<meta http-equive="X-UA-Compatible" content="IE-Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="style.css">
+
+<title>Chat</title>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBiZkNr38wEe0GSTYEpxEyF5DXKeue3rdM",
+  authDomain: "brightplus-75b81.firebaseapp.com",
+  databaseURL: "https://brightplus-75b81-default-rtdb.firebaseio.com",
+  projectId: "brightplus-75b81",
+  storageBucket: "brightplus-75b81.appspot.com",
+  messagingSenderId: "1085441302183",
+  appId: "1:1085441302183:web:380ec5822f81f7d32ac582",
+  measurementId: "G-GKPSFFJWL6"
+};
+
+firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        firebase.auth();
+        firebase.database();
+        const database = firebase.database();
+        const auth = firebase.auth();
+
+</script>
+
+
+    </head>
+    <body>
+    
+
+
+
+<section id="login_signup">
+<center>
+<input type="email" id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+<br>
+ <button onclick="login()" id="login">𝕷𝖔𝖌𝖎𝖓</button>
+ <button onclick="signup()" id="signup">𝕾𝖎𝖌𝖓𝖚𝖕</button>
+<button type="button" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" onclick="alert('𝖍𝖊𝖑𝖑𝖔 𝖚𝖘𝖊𝖗𝖘 𝖍𝖊𝖗𝖊 𝖆 𝖌𝖔𝖔𝖉 𝖈𝖍𝖆𝖓𝖌𝖊𝖘 𝖕𝖑𝖊𝖆𝖘𝖊 𝖘𝖊𝖊𝖓 𝖆𝖓𝖉 𝖆𝖇𝖔𝖚𝖙 𝖆 𝖓𝖊𝖜 𝖑𝖔𝖔𝖐 𝖆𝖓𝖉 𝖜𝖎𝖙𝖍 𝖆𝖜𝖔𝖘𝖔𝖒𝖊 𝖈𝖔𝖑𝖔𝖚𝖗𝖘 𝖕𝖑𝖊𝖆𝖘𝖊 𝕱𝖔𝖑𝖑𝖔𝖜 【&】 𝖚𝖕𝖛𝖔𝖙𝖊 𝖒𝖊 𝖆𝖓𝖉 𝖘𝖚𝖏𝖎𝖙 𝖌𝖆𝖚𝖙𝖆𝖒🇮🇳🇮🇳🇮🇳🇮🇳🇮🇳')"><img class="h-small-img" src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/il/ios14-messages-more-icon.png" style="width:20px;height:20px;"></button><button type="button" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" 
+onclick="alert('𝖍𝖊𝖑𝖑𝖔 𝖚𝖘𝖊𝖗𝖘 𝖍𝖊𝖗𝖊 𝖔𝖚𝖗 𝖙𝖊𝖗𝖒𝖘 & 𝖈𝖔𝖓𝖉𝖎𝖙𝖎𝖔𝖓 :𝖒𝖊𝖆𝖘𝖘𝖆𝖌𝖊 𝖆𝖕𝖕 𝖙𝖊𝖗𝖒 𝖆𝖓𝖉 𝖈𝖔𝖓𝖉𝖎𝖙𝖎𝖔𝖓 𝖆𝖗𝖊 𝖆𝖕𝖕𝖑𝖎𝖊𝖉,𝖜𝖍𝖊𝖓 𝖞𝖔𝖚 𝖊𝖓𝖙𝖊𝖗 𝖕𝖑𝖊𝖆𝖘𝖊 𝖚𝖕𝖛𝖔𝖙𝖊 𝖈𝖔𝖉𝖊 𝖆𝖓𝖉 𝖋𝖔𝖑𝖑𝖔𝖜 𝖒𝖊  𝕴 𝖆𝖒 𝖏𝖚𝖘𝖙 𝖒𝖆𝖐𝖎𝖓𝖌 𝖙𝖍𝖎𝖘 𝖆𝖜𝖔𝖘𝖔𝖒𝖊 𝖆𝖕𝖕  𝖘𝖔 𝖏𝖚𝖘𝖙 𝖊𝖓𝖏𝖔𝖞 𝖔𝖚𝖗 𝖈𝖔𝖉𝖊 𝖕𝖑𝖊𝖆𝖘𝖊 𝕱𝖔𝖑𝖑𝖔𝖜 【&】 𝖚𝖕𝖛𝖔𝖙𝖊 𝖒𝖊 𝖆𝖓𝖉 𝖘𝖚𝖏𝖎𝖙 𝖌𝖆𝖚𝖙𝖆𝖒🇮🇳🇮🇳🇮🇳🇮🇳🇳 ')">
+</center>
+</section>
+
+
+<section id="chat">
+<div><center id="messagesContent">
+
+</center></div>
+
+<div id="backdrop-send">
+<input placeholder="Message" id="sms">
+<span class="material-icons" style="color:#5362fb;" onclick="send()" id="send">send</span>
+
+<button id="logout" onclick="auth.signOut()">Logout</button>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="loading" style="
+position: fixed;
+top: 0;bottom:0;left:0;right:0;
+place-items: center;
+display: none;
+z-index: 6;
+background-color:#0000007d;
+
+">
+        <div id="loading-bg" style="
+background-color:#0000007d;
+border-radius:100px;
+display:grid;
+place-items:center;
+">
+<lo>
+<div id="main">
+<div id="div3">
+<div id="div2"></div>
+</div>
+</div>
+<style>
+*{padding: 0;margin: 0;}
+#main{
+background-color: transparent;
+border-radius: 100%;
+width: 20vw;
+height: 20vw;
+}
+#div2{
+background-color: white;
+border-radius: 100%;
+width: 14vw;
+height:14vw;
+}
+#div3{
+place-items: center;
+display: grid;
+border-radius:100%;
+background-color:green;
+width:20vw;
+height:20vw;
+background:linear-gradient(90deg , #5362fb 50%,#fff 50%);
+animation: load 1s infinite;
+}
+@keyframes load{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+</style>
+</lo>
+        </div>
+    </div>
+
+
+
+<script src="main.js"></script>
+
+    </body>
+</html>
