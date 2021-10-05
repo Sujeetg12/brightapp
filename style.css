@@ -1,0 +1,102 @@
+body {
+user-select: none;
+margin:0;
+padding: 0;
+}
+
+#login_signup{
+background-color:#5362fb;
+position:fixed;
+top:0;bottom:0;right:0;left:0;
+overflow-y:auto;overflow-x:auto;
+display:grid;
+place-items:center;
+}
+
+#email,#password,#sms{
+padding:0.5em;
+margin:0.5em;
+border-radius:0.5em;
+border:solid 1px #5362fb;
+box-shadow:0.1em 0.1em 0.5em #000,-0.1em -0.1em 0.5em #000;
+color:#5362fb;
+outline:none;
+}
+
+#login,#signup{
+padding:0.5em;
+margin:0.5em;
+background-color:#5362fb;
+color:#fff;
+outline:none;
+border:none;
+box-shadow:0.1em 0.1em 0.5em #000,-0.1em -0.1em 0.5em #000;
+border-radius:0.5em;
+width:40vw;
+}
+
+#login:active,#signup:active,#logout:active{
+box-shadow:inset 0.1em 0.1em 0.5em #000,inset -0.1em -0.1em 0.5em #000;
+}
+
+#logout{
+position: fixed;
+right:0;top:0;width:40px; height:40px;
+background-color:#5362fb;
+color: #ffffff;
+box-shadow:0.1em 0.5em #000,-0.1em -0.1em 0.5em #000 
+}
+
+#backdrop-send{
+position:fixed;
+bottom:0;
+display:flex;
+place-items:center ;
+}
+
+#chat{
+display:none;
+}
+
+#toast{
+background-color: #0000008F;
+position: fixed;
+bottom: 10%;
+left: 100px;
+right: 10%;
+padding: .5em;
+border-radius: 5em;
+text-align: center;
+animation: animation1 3s;
+}
+@keyframes animation1{
+0%{opacity: 0;bottom:0%;}
+20%{opacity: 1;bottom:10%;}
+80%{opacity: 1}
+100%{opacity: 0;}
+}
+
+#toastMessage{color: white;}
+
+#messages{
+width: 300px;
+padding: 0.5em;
+border: solid 1px #000;
+border-radius: 0.5em;
+margin: 0.5em;
+}
+#sms{
+padding: 0.5em;
+border: solid 1px #000;
+border-radius: 0.5em;
+margin: 0.5em;
+width:310px;
+}
+.myMessage{
+background-color: #5362fb;
+color:white;
+}
+.otherMessage{
+background-color: #fff;
+color:#5362fb;;
+}
