@@ -156,4 +156,21 @@ let toast = document.createElement('div');
         setTimeout(function() { toast.remove() }, 3000);
         setTimeout(function() { toastMessage.remove() }, 3000);
 }
+//New
 
+function next() {
+    document.getElementById("p1").style.display = "none";
+}
+
+        
+        
+$(document).ready(function (){
+    $("#s1").hide(50);
+    $("#p1").click(function (){
+    $("#s1").show(500);
+    $("#body1").hide(100);
+    $("#s1").click(function(){
+    $("#s1").hide(50);
+    $("#hide").show (50);
+    });
+    }); });
