@@ -165,10 +165,10 @@ function next() {
         
         
 $(document).ready(function (){
-    $("#s1").hide(50);
-    $("#p1").click(function (){
-    $("#s1").show(500);
-    $("#body1").hide(100);
+    $("#chat").hide(50);
+    $("#logout").click(function (){
+    $("#backdrop-send").hide(500);
+    $("messagesContent").hide(100);
     $("#s1").click(function(){
     $("#s1").hide(50);
     $("#hide").show (50);
