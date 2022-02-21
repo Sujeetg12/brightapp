@@ -8,6 +8,12 @@
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
         <title>Page Title</title>
+<link rel="manifest" href="manifest.json" />
+<script type="module">
+   import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+   const el = document.createElement('pwa-update');
+   document.body.appendChild(el);
+</script>
     </head>
     <body><div id="p1">
        <h1 id="b1">BRIGHT<br/>PLUS</h1>
